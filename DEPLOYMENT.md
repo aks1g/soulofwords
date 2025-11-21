@@ -1,49 +1,35 @@
-# Deployment Guide: Soul of Words on Render.com
+# Deployment Guide: Soul of Words on Render.com (Blueprint Method)
 
-This guide will walk you through deploying your full-stack application on Render.
+This guide will walk you through deploying your full-stack application on Render using the automated Blueprint method.
 
 ### Prerequisites
-- Your project code is successfully pushed to a clean GitHub repository.
+- Your project code, including the `render.yaml` file, is on GitHub.
 - You have a Render.com account, logged in with GitHub.
 
 ### Deployment Steps
 
-**1. Log in to Render and Create a New Service:**
+**1. Commit and Push the Latest Changes:**
+Before deploying, make sure your `render.yaml` file is on GitHub.
+```bash
+git add .
+git commit -m "feat: Add render.yaml for automated deployment"
+git push origin main
+```
+
+**2. Log in to Render and Create a New Blueprint:**
 - Go to your [Render Dashboard](https://dashboard.render.com/).
-- Click the **"New +"** button and select **"Web Service"**.
+- Click the **"New +"** button and select **"Blueprint"**.
 
-**2. Connect Your GitHub Repository:**
-- Find and select your new GitHub repository (e.g., `sabdo-ki-aatma-live`).
-- Click **"Connect"**.
+**3. Connect Your GitHub Repository:**
+- Select your GitHub repository (e.g., `sabdo-ki-aatma-live`).
+- Render will automatically detect and apply the settings from your `render.yaml` file.
+- Click **"Apply"** to confirm.
 
-**3. Configure the Service Settings:**
-- **Name**: `sabdo-ki-aatma` (or a name of your choice).
-- **Region**: Choose a region near you (e.g., Singapore).
-- **Branch**: `main`.
-- **Build Command**: `cd backend && npm install`.
-- **Start Command**: `cd backend && npm start`.
-- **Instance Type**: Select the **`Free`** plan.
-
-**4. Add Environment Variables (Crucial Step):**
-- Scroll down to the "Environment" section.
-- Click **"Add Environment Variable"** for each of the following:
-
-| Key           | Value                                                                                             |
-|---------------|---------------------------------------------------------------------------------------------------|
-| `MONGODB_URI` | `mongodb+srv://akshit66:akshit66@cluster0.ymh9sic.mongodb.net/sabdo-ki-aatma?retryWrites=true&w=majority` |
-| `JWT_SECRET`  | `your-very-strong-secret-key-that-is-at-least-32-characters-long` (Create a new secret!) |
-| `NODE_ENV`    | `production`                                                                                      |
-| `PORT`        | `5000`                                                                                            |
-
-**5. Create the Web Service:**
-- Click the **"Create Web Service"** button at the bottom.
-- Render will now build and deploy your project. This may take a few minutes. You can watch the progress in the **"Logs"** tab.
-
-**6. Your Site is Live!**
-- Once the status shows **"Live"**, Render will give you a public URL at the top of the page (e.g., `https://sabdo-ki-aatma.onrender.com`).
-- Visit that URL to see your website.
-- The admin panel is available at `/admin` (e.g., `https://sabdo-ki-aatma.onrender.com/admin`).
+**4. Your Site is Live!**
+- Render will now build and deploy your project based on the blueprint. This may take a few minutes.
+- Once the status shows **"Live"**, your website will be available at the public URL provided by Render.
+- The admin panel is at `/admin` (e.g., `https://sabdo-ki-aatma.onrender.com/admin`).
 
 ### Troubleshooting
-- **502 Error / App Crashing:** Check the "Logs" on Render for errors. The most common cause is an incorrect or missing environment variable, or an IP whitelist issue in MongoDB Atlas.
-- **IP Whitelist:** Make sure your MongoDB Atlas "Network Access" list is set to `0.0.0.0/0` (Allow Access from Anywhere).
+- **Deployment Fails:** Check the "Logs" on Render for errors. The most common issues are related to the MongoDB connection or IP whitelisting.
+- **IP Whitelist:** Ensure your MongoDB Atlas "Network Access" list is set to `0.0.0.0/0` (Allow Access from Anywhere).

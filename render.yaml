@@ -1,24 +1,29 @@
+# Render Blueprint to automatically set up the web service.
+# See https://render.com/docs/blueprint-spec for details.
+
 services:
+  # A web service for the full-stack application
   - type: web
     name: sabdo-ki-aatma
+    # Use the Node.js environment
     env: node
+    # The free plan is sufficient for this project
     plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
-    rootDir: .
+    # Specify the commands to build and start the service
+    buildCommand: "cd backend && npm install"
+    startCommand: "cd backend && npm start"
+    # Health check path to ensure the service is running
+    healthCheckPath: /api/health
     envVars:
       - key: MONGODB_URI
-        fromDatabase:
-          name: sabdo-ki-aatma-db
-          property: connectionString
+        # IMPORTANT: This value must be set in the Render dashboard
+        # under Environment -> Secret Files -> Add Secret File
+        # because it contains credentials.
+        value: "mongodb+srv://akshit66:akshit66@cluster0.ymh9sic.mongodb.net/sabdo-ki-aatma?retryWrites=true&w=majority"
       - key: JWT_SECRET
-        value: your-very-strong-secret-key-min-32-characters-long
+        # Generate a new, random secret key for production
+        generateValue: true
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 5000
-
-databases:
-  - name: sabdo-ki-aatma-db
-    plan: free
-    region: singapore
