@@ -100,7 +100,7 @@ function displayGallery(items) {
 
   galleryGrid.innerHTML = items.map(item => `
     <div class="gallery-item" onclick="openModal('${item._id}')">
-      <img src="http://localhost:5000/${item.image}" alt="${item.title}" class="gallery-item-image" onerror="this.src='https://via.placeholder.com/280x250?text=Image+Not+Found'">
+      <img src="${item.image}" alt="${item.title}" class="gallery-item-image" onerror="this.src='https://via.placeholder.com/280x250?text=Image+Not+Found'">
       <div class="gallery-item-content">
         <h3 class="gallery-item-title">${item.title}</h3>
         <p class="gallery-item-description">${item.description || 'No description available'}</p>
@@ -118,7 +118,7 @@ function openModal(itemId) {
   if (!item) return;
 
   const modal = document.getElementById('imageModal');
-  document.getElementById('modalImage').src = `http://localhost:5000/${item.image}`;
+  document.getElementById('modalImage').src = item.image;
   document.getElementById('modalTitle').textContent = item.title;
   document.getElementById('modalDescription').textContent = item.description || 'No description available';
   

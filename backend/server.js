@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const fs = require('fs');
 
 dotenv.config();
 const app = express();
@@ -27,12 +26,6 @@ app.use(cors({
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-
-// Create uploads directories
-if (!fs.existsSync('uploads/gallery')) fs.mkdirSync('uploads/gallery', { recursive: true });
-if (!fs.existsSync('uploads/products')) fs.mkdirSync('uploads/products', { recursive: true });
-
-app.use('/uploads', express.static('uploads'));
 
 // Serve static files from frontend folder
 const frontendPath = path.join(__dirname, '../frontend');

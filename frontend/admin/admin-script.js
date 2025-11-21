@@ -150,7 +150,7 @@ async function loadGallery() {
 
     list.innerHTML = items.map(item => `
       <div class="item-card">
-        <img src="http://localhost:5000/${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found'">
+        <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found'">
         <div class="item-card-content">
           <h3>${item.title}</h3>
           <p>${item.description || 'No description'}</p>
@@ -232,7 +232,7 @@ async function loadProducts() {
 
     list.innerHTML = items.map(item => `
       <div class="item-card">
-        <img src="http://localhost:5000/${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found'">
+        <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found'">
         <div class="item-card-content">
           <h3>${item.name}</h3>
           <p>${item.description || 'No description'}</p>

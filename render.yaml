@@ -9,9 +9,11 @@ services:
     env: node
     # The free plan is sufficient for this project
     plan: free
-    # Specify the commands to build and start the service
-    buildCommand: "cd backend && npm install"
-    startCommand: "cd backend && npm start"
+    # Set the root directory to 'backend'
+    rootDir: backend
+    # Commands are now simpler because they run inside the rootDir
+    buildCommand: "npm install"
+    startCommand: "npm start"
     # Health check path to ensure the service is running
     healthCheckPath: /api/health
     envVars:
