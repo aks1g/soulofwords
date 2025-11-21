@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Soul of Words | शब्दों की आत्मा</title>
+  <link rel="stylesheet" href="./css-files/style.css">
+  <link rel="stylesheet" href="./css-files/gallery.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Tiro+Devanagari+Hindi&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="./images/logo white.png" alt="Soul of Words Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Our Services</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <h1>Our Gallery</h1>
+        <p>Explore our collection of literary works and magazine issues</p>
+        <div class="underline"></div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+        <div id="categoryButtons"></div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="galleryGrid" class="gallery-grid">
+        <!-- Gallery items will be loaded here -->
+      </div>
+
+      <!-- Loading State -->
+      <div id="loadingState" class="loading-state">
+        <p>Loading gallery...</p>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <i class="fas fa-image"></i>
+        <p>No gallery items available yet</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for full image view -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <img src="images/logo white.png" alt="Logo" class="footer-logo">
+        <p>A premier Hindi magazine connecting readers with the soul of literature and knowledge.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Magazine</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Stories (कहानियाँ)</a></li>
+          <li><a href="#">Education (शिक्षा)</a></li>
+          <li><a href="#">Politics (राजनीति)</a></li>
+          <li><a href="#">Science (विज्ञान)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Subscribe</h3>
+        <p>Get the latest literary news delivered to your inbox.</p>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter Email">
+          <button><i class="fas fa-paper-plane"></i></button>
+        </form>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Soul of Words. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js-files/gallery.js"></script>
+  <script src="script2.js"></script>
+</body>
+</html>

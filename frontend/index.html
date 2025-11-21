@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul of Words | शब्दों की आत्मा</title>
+  <link rel="stylesheet" href="./css-files/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Tiro+Devanagari+Hindi&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="./images/logo white.png" alt="Soul of Words Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Our Services</a></li>
+        <li><a href="gallery.html">gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+    <header id="home" class="hero">
+        <div class="slider">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/slide1.webp');">
+                <div class="hero-content">
+                    <h1>शब्दों की आत्मा <br><span>Soul of Words</span></h1>
+                    <p>Connecting hearts through the power of literature. National Unity's Symbol.</p>
+                    <a href="#book" class="btn-primary">Read Latest Issue</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/slide2.png');">
+                <div class="hero-content">
+                    <h1>A Voice for <br><span>Society & Culture</span></h1>
+                    <p>"Yatha chittam tatha vacho" - As the mind, so the speech.</p>
+                    <a href="#contact" class="btn-primary">Join Our Community</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
+            <div class="next" onclick="changeSlide(1)">&#10095;</div>
+        </div>
+    </header>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Magazine</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="images/award 1.jpg" alt="Magazine Launch Event">
+                </div>
+                <div class="about-text">
+                    <h3>Empowering Thoughts, Uniting Nation</h3>
+                    <p><strong>Soul of Words (शब्दों की आत्मा)</strong> is a bi-monthly Hindi magazine dedicated to Literature, Education, Politics, and Science. We strive to bring you content that touches the soul and sharpens the intellect.</p>
+                    <p>Our mission is to promote national unity and cultural heritage through the written word. Whether it is poetry, stories, or analytical articles, we provide a platform for meaningful expression.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Literature & Stories (साहित्य)</li>
+                        <li><i class="fas fa-check-circle"></i> Education & Sports (शिक्षा-खेल)</li>
+                        <li><i class="fas fa-check-circle"></i> Politics & Current Affairs (राजनीति)</li>
+                        <li><i class="fas fa-check-circle"></i> Science & Knowledge (ज्ञान-विज्ञान)</li>
+                        <li><i class="fas fa-check-circle"></i> Science & Knowledge (परिचर्चा)</li>
+                        <li><i class="fas fa-check-circle"></i> Science & Knowledge (पर्यावरण)</li>
+                        <li><i class="fas fa-check-circle"></i> Science & Knowledge (समाचार)</li>
+                        <li><i class="fas fa-check-circle"></i> Science & Knowledge (संस्कृति और सभ्यता)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="section book-section">
+        <div class="container">
+            <div class="book-wrapper">
+                <div class="book-image-container">
+                    <img src="images/book-image.jpg" alt="Soul of Words Latest Issue" class="main-book">
+                    <div class="price-tag">₹80+PC</div>
+                </div>
+                <div class="book-details">
+                    <span class="badge">New Release</span>
+                    <h2>Vol 5 | Issue 30 | Nov-Dec</h2>
+                    <h3>शब्दों की आत्मा (Soul of Words)</h3>
+                    <p class="quote">"National Unity Symbol Bi-Monthly Hindi Magazine"</p>
+                    <p>In this issue, dive deep into articles that matter. Featuring exclusive stories, poems, and insights into the current socio-political landscape.</p>
+                    
+                    <div class="book-meta">
+                        <div class="meta-item">
+                            <strong>RNI NO:</strong>
+                            <span>HARBIL/2020/01885</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>Date:</strong>
+                            <span>January, 2021</span>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="#" class="btn-primary">Subscribe Now</a>
+                        <!-- TODO: Host the large Book.pdf file on a cloud service and replace # with the public link -->
+                        <a href="#" class="btn-secondary">Download Sample</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-box">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>soulofwords4@gmail.com</p>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Sonipat, Haryana, India</p>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+91 94675 20190</p> </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <img src="images/logo white.png" alt="Logo" class="footer-logo">
+                <p>A premier Hindi magazine connecting readers with the soul of literature and knowledge.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Magazine</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Stories (कहानियाँ)</a></li>
+                    <li><a href="#">Education (शिक्षा)</a></li>
+                    <li><a href="#">Politics (राजनीति)</a></li>
+                    <li><a href="#">Science (विज्ञान)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Subscribe</h3>
+                <p>Get the latest literary news delivered to your inbox.</p>
+                <form class="footer-subscribe">
+                    <input type="email" placeholder="Enter Email">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Soul of Words. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script2.js"></script>
+</body>
+</html>

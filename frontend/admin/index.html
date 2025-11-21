@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Soul of Words</title>
+  <link rel="stylesheet" href="admin-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="welcome-section">
+        <h2>Welcome</h2>
+        <p class="user-name" id="userName">Loading...</p>
+      </div>
+      <ul>
+        <li><a href="#gallery" class="tab-link active">Gallery</a></li>
+        <li><a href="#products" class="tab-link">Products</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-content">
+      <!-- Gallery Section -->
+      <section id="gallery" class="tab-content active">
+        <h1>Manage Gallery</h1>
+        <button class="btn-add" onclick="toggleGalleryForm()">+ Add Gallery Item</button>
+        
+        <form id="galleryForm" class="form-hidden" enctype="multipart/form-data">
+          <input type="text" placeholder="Title" id="galTitle" required>
+          <textarea placeholder="Description" id="galDescription"></textarea>
+          <input type="file" id="galImage" accept="image/*" required>
+          <input type="text" placeholder="Category" id="galCategory">
+          <button type="submit">Add Item</button>
+        </form>
+
+        <div id="galleryList" class="items-list"></div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="products" class="tab-content">
+        <h1>Manage Products</h1>
+        <button class="btn-add" onclick="toggleProductForm()">+ Add Product</button>
+        
+        <form id="productForm" class="form-hidden" enctype="multipart/form-data">
+          <input type="text" placeholder="Product Name" id="prodName" required>
+          <textarea placeholder="Description" id="prodDescription"></textarea>
+          <input type="number" placeholder="Price" id="prodPrice" required>
+          <input type="file" id="prodImage" accept="image/*" required>
+          <input type="text" placeholder="Category" id="prodCategory">
+          <input type="number" placeholder="Stock" id="prodStock" value="0">
+          <button type="submit">Add Product</button>
+        </form>
+
+        <div id="productList" class="items-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>
