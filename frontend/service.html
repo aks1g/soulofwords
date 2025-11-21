@@ -29,6 +29,18 @@
       </div>
     </div>
   </nav>
+
+  <main>
+    <section class="services-section" style="padding: 4rem 0;">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Our Services</h2>
+        <div id="services-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <!-- Services from backend will be loaded here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="container footer-container">
       <div class="footer-col">
@@ -72,6 +84,39 @@
     </div>
   </footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const servicesContainer = document.getElementById('services-container');
+      try {
+        // Assuming your backend is running on port 5000
+        const response = await fetch('http://localhost:5000/api/products');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const products = await response.json();
+
+        if (products.length === 0) {
+          servicesContainer.innerHTML = '<p>No services are available at the moment.</p>';
+          return;
+        }
+
+        let productsHTML = '';
+        products.forEach(product => {
+          productsHTML += `
+            <div class="service-card" style="border: 1px solid #ddd; padding: 1rem; text-align: center;">
+              <img src="${product.image}" alt="${product.name}" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+            </div>
+          `;
+        });
+        servicesContainer.innerHTML = productsHTML;
+      } catch (error) {
+        console.error('Failed to fetch services:', error);
+        servicesContainer.innerHTML = '<p>Could not load services. Please try again later.</p>';
+      }
+    });
+  </script>
   <script src="script2.js"></script>
 </body>
 </html>
