@@ -1,84 +1,49 @@
-# Deployment Guide - Soul of Words
+# Deployment Guide: Soul of Words on Render.com
 
-## Prerequisites
-- GitHub account
-- Render.com account
-- MongoDB Atlas account (already configured)
+This guide will walk you through deploying your full-stack application on Render.
 
-## Deployment Steps
+### Prerequisites
+- Your project code is successfully pushed to a clean GitHub repository.
+- You have a Render.com account, logged in with GitHub.
 
-### 1. Push to GitHub
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/sabdo-ki-aatma.git
-git push -u origin main
-```
+### Deployment Steps
 
-### 2. Deploy on Render.com
+**1. Log in to Render and Create a New Service:**
+- Go to your [Render Dashboard](https://dashboard.render.com/).
+- Click the **"New +"** button and select **"Web Service"**.
 
-1. Go to https://render.com
-2. Sign in with GitHub
-3. Click "New +" → "Web Service"
-4. Select your GitHub repository
-5. Configure:
-   - **Name**: sabdo-ki-aatma
-   - **Environment**: Node
-   - **Region**: Singapore (or closest to you)
-   - **Branch**: main
-   - **Build Command**: `cd backend && npm install`
-   - **Start Command**: `cd backend && npm start`
-   - **Plan**: Free
+**2. Connect Your GitHub Repository:**
+- Find and select your new GitHub repository (e.g., `sabdo-ki-aatma-live`).
+- Click **"Connect"**.
 
-6. Add Environment Variables:
-   ```
-   MONGODB_URI=mongodb+srv://akshit66:akshit66@cluster0.ymh9sic.mongodb.net/sabdo-ki-aatma?retryWrites=true&w=majority
-   JWT_SECRET=your-very-strong-secret-key-min-32-characters-long
-   NODE_ENV=production
-   PORT=5000
-   ```
+**3. Configure the Service Settings:**
+- **Name**: `sabdo-ki-aatma` (or a name of your choice).
+- **Region**: Choose a region near you (e.g., Singapore).
+- **Branch**: `main`.
+- **Build Command**: `cd backend && npm install`.
+- **Start Command**: `cd backend && npm start`.
+- **Instance Type**: Select the **`Free`** plan.
 
-7. Click "Create Web Service"
-8. Wait for deployment (5-10 minutes)
-9. Copy the deployed URL
+**4. Add Environment Variables (Crucial Step):**
+- Scroll down to the "Environment" section.
+- Click **"Add Environment Variable"** for each of the following:
 
-### 3. Test Your Deployment
+| Key           | Value                                                                                             |
+|---------------|---------------------------------------------------------------------------------------------------|
+| `MONGODB_URI` | `mongodb+srv://akshit66:akshit66@cluster0.ymh9sic.mongodb.net/sabdo-ki-aatma?retryWrites=true&w=majority` |
+| `JWT_SECRET`  | `your-very-strong-secret-key-that-is-at-least-32-characters-long` (Create a new secret!) |
+| `NODE_ENV`    | `production`                                                                                      |
+| `PORT`        | `5000`                                                                                            |
 
-- **Homepage**: https://your-app.onrender.com/
-- **Gallery**: https://your-app.onrender.com/gallery.html
-- **Admin Panel**: https://your-app.onrender.com/admin
-- **API Health**: https://your-app.onrender.com/api/health
+**5. Create the Web Service:**
+- Click the **"Create Web Service"** button at the bottom.
+- Render will now build and deploy your project. This may take a few minutes. You can watch the progress in the **"Logs"** tab.
 
-### 4. First Time Setup
+**6. Your Site is Live!**
+- Once the status shows **"Live"**, Render will give you a public URL at the top of the page (e.g., `https://sabdo-ki-aatma.onrender.com`).
+- Visit that URL to see your website.
+- The admin panel is available at `/admin` (e.g., `https://sabdo-ki-aatma.onrender.com/admin`).
 
-1. Go to admin panel: https://your-app.onrender.com/admin
-2. Sign up with credentials
-3. Login
-4. Add gallery items and products
-
-## Troubleshooting
-
-### Images not loading
-- Check if uploads folder exists on server
-- Ensure image paths are correct
-
-### API errors
-- Check CORS settings in server.js
-- Verify MongoDB connection string
-- Check environment variables
-
-### Build fails
-- Ensure all dependencies in package.json
-- Check Node version compatibility
-- Review build logs on Render
-
-## Live URL
-Your application is live at: **[Your Render URL will appear here after deployment]**
-
-## Maintenance
-- Monitor Render dashboard
-- Keep MongoDB Atlas credentials secure
-- Backup database regularly
-- Update dependencies quarterly
+### Troubleshooting
+- **502 Error / App Crashing:** Check the "Logs" on Render for errors. The most common cause is an incorrect or missing environment variable, or an IP whitelist issue in MongoDB Atlas.
+- **IP Whitelist:** Make sure your MongoDB Atlas "Network Access" list is set to `0.0.0.0/0` (Allow Access from Anywhere).

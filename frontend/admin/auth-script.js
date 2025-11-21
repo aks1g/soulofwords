@@ -1,4 +1,4 @@
-const API_URL = 'https://your-backend-url.onrender.com/api';
+const API_URL = '/api';
 
 // Login form handler
 const loginForm = document.getElementById('loginForm');
