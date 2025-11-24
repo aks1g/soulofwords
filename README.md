@@ -23,7 +23,7 @@ A bi-monthly Hindi magazine platform with admin panel for managing gallery and p
 - Node.js + Express
 - MongoDB Atlas
 - JWT Authentication
-- Multer for file uploads
+- Cloudinary for file uploads
 
 ## Project Structure
 
